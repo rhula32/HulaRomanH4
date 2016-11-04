@@ -20,9 +20,7 @@ public class Stack
   public void push(String newString) 
   {
     Node newNode = new Node(newString);
-    
-    // if list is empty, 
-    //add data to new head node
+ 
     if (this.isEmpty()) 
     {
       this.first = newNode;
@@ -36,22 +34,16 @@ public class Stack
   
   public boolean isEmpty() 
   {
-    // tests if the list is empty
     return this.first == null;
   }
   
   public Node pop() 
   {
-    // temporary node (to return)
-    Node temporary = this.first;
+    Node current = this.first;
     this.first = first.getNext();
-    // isolate tmp node before returning
-    // we wouldn't have to do this if
-    // we were returning an int instead of
-    // a Node
-    temporary.setNext(null);
+    current.setNext(null);
     // node return the dequeued
-    return(temporary);
+    return(current);
   }
   
   public void deleteList() 
@@ -61,14 +53,10 @@ public class Stack
   
   public void println() 
   {
-    // local Node variable to keep track of where we are
-    // start at the head of the list
     Node current = this.first;
-    // loop through until we get to end of list
     while(current != null) 
     {
-      current.print(); // print current node
-      // move current to the next node
+      current.print(); 
       current = current.getNext();
     }
     System.out.println("");

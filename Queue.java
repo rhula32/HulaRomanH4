@@ -36,31 +36,22 @@ public class Queue
   {
     Node newNode = new Node(newString);
     
-    // if list is empty, 
-    //add data to new node at both head & tail
     if (this.isEmpty()) 
     {
       this.first = newNode;
       this.last = newNode;
     }
     else 
-    // add to tail
     {
-      // make former tail's next the new node
-      // to put new node on end
       last.setNext(newNode);
-      // move tail to last item in queue
       this.last = newNode;
     }
   }
   
   public Node dequeue() 
   {
-    // temporary node (to return)
-    Node temporary = this.first;
+    Node current = this.first;
     
-    // check if there is more than one
-    // item in queue
     if (this.first == this.last) 
     {
       this.first = null;
@@ -69,18 +60,11 @@ public class Queue
     else
     {
       this.first = first.getNext();
-      // isolate tmp node before returning
-      // we wouldn't have to do this if
-      // we were returning an int instead of
-      // a Node
-      temporary.setNext(null);
+      current.setNext(null);
     }
-    // node return the dequeued
-    return(temporary);
+    return(current);
   }
   
-  // returns deep copy of node from 
-  // front node of queue
   public Node peek() 
   {
     Node temporary = new Node(this.first.getString());
@@ -89,7 +73,6 @@ public class Queue
   
   public boolean isEmpty() 
   {
-    // tests if the list is empty
     return this.first == null;
   }
   
@@ -107,17 +90,13 @@ public class Queue
     } 
     else
     {
-    // local Node variable to keep track of where we are
-    // start at the head of the list
-    Node current = this.first;
-    // loop through until we get to end of list
-    while(current != null) 
-    {
-      current.print(); // print current node
-      // move current to the next node
-      current = current.getNext();
-    }
-    System.out.println("");
+      Node current = this.first;
+      while(current != null) 
+      {
+        current.print();
+        current = current.getNext();
+      }
+      System.out.println("");
     }
   }
 }
