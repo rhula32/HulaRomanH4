@@ -1,97 +1,156 @@
+/**
+ * Testing class is used to demonstrate & test the stack & queue operations
+ * This class contains the following:
+ * 1. A method that transfers elements from a stack to a queue
+ * 2. A method that transfers elements from a queue to a stack
+ * 3. A method that transfers elements from a stack to another stack
+ * 4. A main method that tests & prints theses methods
+ */ 
 public class Testing 
 {
   public static void main (String [] args) 
   {
-    Queue myQueue = new Queue();
-    Stack myStack = new Stack();
-    
-    //Push strings into a stack to create a stack & print
-    System.out.println("Demonstrating the stack operations: ");
-    myStack.push("Magic");
-    myStack.println();
-    myStack.push("Scott");
-    myStack.println();
-    myStack.push("Worthy");
-    myStack.println();
-    myStack.push("Rambis");
-    myStack.println();
-    myStack.push("Abdul-Jabbar");
-    myStack.println();
-    myStack.println();
-    myStack.pop();
-    myStack.println();
-    myStack.pop();
-    myStack.println();
-    myStack.pop();
-    myStack.println();
-    myStack.pop();
-    myStack.println();
-    myStack.pop();
-    myStack.println();
+    //Create the first stack object
+    Stack lakersCenters = new Stack();
+    lakersCenters.push("Mikan");
+    lakersCenters.push("Lovellette");
+    lakersCenters.push("Chamberlain");
+    lakersCenters.push("Abdul-Jabbar");
+    lakersCenters.push("O'Neal");
+    System.out.println("Popping & Printing the elements of the stack: ");
+    lakersCenters.pop().print();
+    lakersCenters.pop().print();
+    lakersCenters.pop().print();
+    lakersCenters.pop().print();
+    lakersCenters.pop().print();
+    System.out.println("Re-pushing the elements back into the stack for further use: ");
+    lakersCenters.push("Mikan");
+    lakersCenters.push("Lovellette");
+    lakersCenters.push("Chamberlain");
+    lakersCenters.push("Abdul-Jabbar");
+    lakersCenters.push("O'Neal");
     System.out.println();
     
-    //Enqueue strings into a queue to create a queue & print
-    System.out.println("Demonstrating the queue operations: ");
-    myQueue.enqueue("Johnson");
-    myQueue.println();
-    myQueue.enqueue("Ainge");
-    myQueue.println();
-    myQueue.enqueue("Bird");
-    myQueue.println();
-    myQueue.enqueue("McHale");
-    myQueue.println();
-    myQueue.enqueue("Parish");
-    myQueue.println();
-    myQueue.println();
-    myQueue.dequeue();
-    myQueue.println();
-    myQueue.dequeue();
-    myQueue.println();
-    myQueue.dequeue();
-    myQueue.println();
-    myQueue.dequeue();
-    myQueue.println();
-    myQueue.dequeue();
-    myQueue.println();
+    //Create a queue object
+    Queue lakersForwards = new Queue();
+    lakersForwards.enqueue("Pollard");
+    lakersForwards.enqueue("Mikkelsen");
+    lakersForwards.enqueue("Baylor");
+    lakersForwards.enqueue("Worthy");
+    lakersForwards.enqueue("Gasol");
+    System.out.println("Dequeueing & Printing the elements of the queue: ");
+    lakersForwards.dequeue().print();
+    lakersForwards.dequeue().print();
+    lakersForwards.dequeue().print();
+    lakersForwards.dequeue().print();
+    lakersForwards.dequeue().print();
+    System.out.println("Re-enqueuing the elements back into the stack for further use: ");
+    lakersForwards.enqueue("Pollard");
+    lakersForwards.enqueue("Mikkelsen");
+    lakersForwards.enqueue("Baylor");
+    lakersForwards.enqueue("Worthy");
+    lakersForwards.enqueue("Gasol");
     System.out.println();
     
-    //Move strings from a stack to a queue & print in the same order
-    System.out.println("Moving the contents of the stack to a queue: ");
-    Queue newQueue = new Queue();
-    newQueue = stackToQueue(myStack);
-    newQueue.println();
+    //Create the second stack object
+    Stack lakersGuards = new Stack();
+    lakersGuards.push("Martin");
+    lakersGuards.push("West");
+    lakersGuards.push("Goodrich");
+    lakersGuards.push("Magic");
+    lakersGuards.push("Bryant");
+    System.out.println("Popping & Printing the elements of the second stack object: ");
+    lakersGuards.pop().print();
+    lakersGuards.pop().print();
+    lakersGuards.pop().print();
+    lakersGuards.pop().print();
+    lakersGuards.pop().print();
+    System.out.println("Re-pushing the elements back into the stack for further use: ");
+    lakersGuards.push("Martin");
+    lakersGuards.push("West");
+    lakersGuards.push("Goodrich");
+    lakersGuards.push("Magic");
+    lakersGuards.push("Bryant");
+    System.out.println();
     
-    //Move strings from a queue to a stack & print in the same order
-    System.out.println("moving the contents of the queue to a stack: ");
-    Stack newStack = new Stack();
-    newStack = queueToStack(myQueue);
-    newStack.println();
+    //Move strings from stack lakersCenters to queue lakersBestCenters & print; Should print in identical order!
+    Queue lakersBestCenters = new Queue();
+    lakersBestCenters = stackToQueue(lakersCenters);
+    System.out.println("Dequeuing & Printing the queue elements that were moved from the stack 'lakersCenters': ");
+    lakersBestCenters.dequeue().print();
+    lakersBestCenters.dequeue().print();
+    lakersBestCenters.dequeue().print();
+    lakersBestCenters.dequeue().print();
+    lakersBestCenters.dequeue().print();
+    System.out.println();
+    
+    //Move strings from queue lakersForwards to stack lakersBestForwards & print; Should print in identical order!
+    Stack lakersBestForwards = new Stack();
+    lakersBestForwards = queueToStack(lakersForwards);
+    System.out.println("Popping & Printing the stack elements that were moved from the queue 'lakersForwards': ");
+    lakersBestForwards.pop().print();
+    lakersBestForwards.pop().print();
+    lakersBestForwards.pop().print();
+    lakersBestForwards.pop().print();
+    lakersBestForwards.pop().print();
+    System.out.println();
+    
+    //Move strings from myStack to newStack2 & print; Should print in identical order!
+    Stack lakersBestGuards = new Stack();
+    lakersBestGuards = stackToStack(lakersGuards);
+    System.out.println("Popping & Printing the stack elements that were moved from the stack 'lakersCenters': ");
+    lakersBestGuards.pop().print();
+    lakersBestGuards.pop().print();
+    lakersBestGuards.pop().print();
+    lakersBestGuards.pop().print();
+    lakersBestGuards.pop().print();
+    System.out.println();
   }
   
-  public static Queue stackToQueue(Stack stack)
+  /**
+   * A method that transfers elements from a stack to a queue
+   * @param stackToQueue    A stack object whose elements will be transfered into a queue object
+   * @return queueFromStack    A queue object whose elements were obtained from a stack object
+   */ 
+  public static Queue stackToQueue(Stack stackToQueue)
   {
-    Queue queue = new Queue();
-    while(!stack.isEmpty());
+    Queue queueFromStack = new Queue();
+    while(!stackToQueue.isEmpty())
     {
-      queue.enqueue(stack.pop().getString());
+      queueFromStack.enqueue(stackToQueue.pop().getString());
     }
-    return(queue);
+    return(queueFromStack);
   }
   
-  public static Stack queueToStack(Queue queue)
+  /**
+   * A method that transfers elements from a queue to a stack
+   * @param queueToStack    A queue object whose elements will be transfered into a stack object
+   * @return stackFromQueue    A stack object whose elements were obtained from a queue object
+   */ 
+  public static Stack queueToStack(Queue queueToStack)
   {
-    Stack stack = new Stack();
-    while(!queue.isEmpty());
+    Stack stackFromQueue = new Stack();
+    while(!queueToStack.isEmpty())
     {
-      stack.push(queue.dequeue().getString());
+      stackFromQueue.push(queueToStack.dequeue().getString());
     }
-    return(stack);
+    return(stackFromQueue);
   }
   
-  public static void stackToStack()
+  /**
+   * A method that transfers elements from a stack to another stack
+   * @param startStack    A stack object whose elements will be transfered into a new stack object
+   * @return endStack    A stack object whose elements were obtained from a stack object
+   */ 
+  public static Stack stackToStack(Stack startStack)
   {
+    Stack endStack = new Stack();
+    while(!startStack.isEmpty())
+    {
+      endStack.push(startStack.pop().getString());
+    }
+    return(endStack);
   }
 }
-  
 
   

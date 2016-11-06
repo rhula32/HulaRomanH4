@@ -1,9 +1,9 @@
- /**
-  * Node class that is used to perform node operations
-  * This class contains the following:
-  * 1. Creates a node, while assigning an element & it's preceding & succeeding references to the node
-  * 2. Getters & Setters for node operations
-  */
+/**
+ * Node class that is used to perform node operations
+ * This class contains the following:
+ * 1. Creates a node, while assigning an element & it's preceding & succeeding references to the node
+ * 2. Getters & Setters for node operations
+ */
 public class Node
 {
   String string;
@@ -92,6 +92,6 @@ public class Node
    */ 
   public void print() 
   {
-    System.out.print(string + " " );
+    System.out.println(string + " " );
   }
 }
