@@ -13,11 +13,11 @@ public class Testing
     //Create the first stack object
     Stack lakersCenters = new Stack();
     lakersCenters.push("Mikan");
-    lakersCenters.push("Lovellette");
+    lakersCenters.push("Lovelette");
     lakersCenters.push("Chamberlain");
     lakersCenters.push("Abdul-Jabbar");
     lakersCenters.push("O'Neal");
-    System.out.println("Popping & Printing the elements of the stack: ");
+    System.out.println("Popping & Printing the elements of the first stack object: ");
     lakersCenters.pop().print();
     lakersCenters.pop().print();
     lakersCenters.pop().print();
@@ -25,7 +25,7 @@ public class Testing
     lakersCenters.pop().print();
     System.out.println("Re-pushing the elements back into the stack for further use: ");
     lakersCenters.push("Mikan");
-    lakersCenters.push("Lovellette");
+    lakersCenters.push("Lovelette");
     lakersCenters.push("Chamberlain");
     lakersCenters.push("Abdul-Jabbar");
     lakersCenters.push("O'Neal");
@@ -45,11 +45,11 @@ public class Testing
     lakersForwards.dequeue().print();
     lakersForwards.dequeue().print();
     System.out.println("Re-enqueuing the elements back into the stack for further use: ");
-    lakersForwards.enqueue("Pollard");
-    lakersForwards.enqueue("Mikkelsen");
-    lakersForwards.enqueue("Baylor");
-    lakersForwards.enqueue("Worthy");
     lakersForwards.enqueue("Gasol");
+    lakersForwards.enqueue("Worthy");
+    lakersForwards.enqueue("Baylor");
+    lakersForwards.enqueue("Mikkelsen");
+    lakersForwards.enqueue("Pollard");
     System.out.println();
     
     //Create the second stack object
@@ -66,11 +66,11 @@ public class Testing
     lakersGuards.pop().print();
     lakersGuards.pop().print();
     System.out.println("Re-pushing the elements back into the stack for further use: ");
-    lakersGuards.push("Martin");
-    lakersGuards.push("West");
-    lakersGuards.push("Goodrich");
-    lakersGuards.push("Magic");
     lakersGuards.push("Bryant");
+    lakersGuards.push("Magic");
+    lakersGuards.push("Goodrich");
+    lakersGuards.push("West");
+    lakersGuards.push("Martin");
     System.out.println();
     
     //Move strings from stack lakersCenters to queue lakersBestCenters & print; Should print in identical order!
@@ -142,14 +142,14 @@ public class Testing
    * @param startStack    A stack object whose elements will be transfered into a new stack object
    * @return endStack    A stack object whose elements were obtained from a stack object
    */ 
-  public static Stack stackToStack(Stack startStack)
+  public static Stack stackToStack(Stack oldStack)
   {
-    Stack endStack = new Stack();
-    while(!startStack.isEmpty())
+    Stack newStack = new Stack();
+    while(!oldStack.isEmpty())
     {
-      endStack.push(startStack.pop().getString());
+      newStack.push(oldStack.pop().getString());
     }
-    return(endStack);
+    return(newStack);
   }
 }
 
